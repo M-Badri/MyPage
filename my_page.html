@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GE - interview</title>
+    <link rel="stylesheet" href="css/impress-common.css">
+    <link rel="stylesheet" href="css/impress-extra.css">
+    <link rel="stylesheet" href="extras/highlight/styles/github.css">
+    <link rel="stylesheet" href="extras/mermaid/mermaid.forest.css">
+    <style>
+        .step {
+            position: relative;
+            padding: 40px;
+            margin: 0 auto;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing:    border-box;
+            -ms-box-sizing:     border-box;
+            -o-box-sizing:      border-box;
+            box-sizing:         border-box;
+            font-family: 'Racing', Sans, One;
+            /* font-family: 'Open Sans', Arial, sans-serif; */
+             /* 'PT Serif', georgia, serif; */
+            font-size: 48px;
+            line-height: 1.5;
+            }
+
+        /* .step .notes {
+            display: none;} */
+
+        .notes {
+            display: none;
+        }
+
+        .slide {
+            width: 1850px;
+            height: 1200px;
+            padding: 0px 0px;
+            /* color: rgb(102, 102, 102); */
+            text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+            /* font-family: 'Racing', Sans, One; */
+            font-family: 'Open Sans', Arial, sans-serif;
+             }
+
+        .credits, .credits h2 {
+            padding-top: 0;}
+
+        figure {
+            border: 1px #cccccc solid;
+            padding: 4px;
+            margin: auto;}
+
+        figcaption {
+            background-color: black;
+            color: white;
+            font-style: italic;
+            padding: 2px;
+            text-align: center;}
+
+        * {
+            box-sizing: border-box;}
+
+        .column {
+            float: left;
+            /* width: 33.33%; */
+            padding: 5px;}
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;}
+
+        img {
+            max-width: 100%;
+            height: auto;}
+
+        @media (max-width: 650px) {
+        body {
+            display: block;
+            font-size: 80%;}
+
+        p {
+            position: relative;
+            margin: -3rem 0 2rem 1rem;
+            padding: 1rem;
+            background: rgba(white, 0.8);}}
+
+        h3p {
+            font: 400 80px/0.8 'Great Vibes', Brush Script MT, Brush Script Std, cursive;}
+
+        h4p {
+            font: 100 70px/0.8 'Great Vibes', Brush Script MT, Brush Script Std, cursive;}
+
+        h1p {
+            font: 600 75px/0.8 'Racing', Sans, One;}
+
+        h4pp {
+             font-family: 'Racing', Sans, One;}
+
+        h5pp {
+            font-family: 'Racing', Sans, One;}
+
+        smaller {
+            font-size:50%; }
+
+        .video-grid { 
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            grid-template-rows: 1fr 1fr;   
+            gap: 5px; 
+            width: 100%;  
+            height: 50%; 
+            justify-items: center; 
+            align-items: center; 
+            border: 5px;}   
+
+        /* Ensure video fits within the container */ 
+        video {
+            width: 100%;  
+            /* height: 75%;  */
+            object-fit: cover;} 
+    
+        .caption {
+            font-size: 50px;
+            margin-top: 10px;
+            color: #333;}
+
+        .video-container {
+            text-align: center;}
+
+        .rotated-video {
+            transform: rotate(90deg); 
+            transform-origin: center;
+            width: 25%;
+            height: 120%;}
+
+        .justified-text {
+            text-align: justify;
+            width: 100%; /* Adjust width as needed */
+            margin: auto;
+            /* padding:20px; */
+        }
+
+        #slide-1.step {
+        position: relative;
+        width: 1950px;   /* example "slide size" */
+        height: 1100px;   /* example "slide size" */
+        }
+
+        #background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 110%;
+        height: 100%;
+        object-fit: cover;      /* Ensures the video fills the slide nicely. */
+        z-index: -1;            /* Places the video behind other elements. */
+        pointer-events: none;   /* Makes clicks pass through to any content over it. */
+        filter: saturate(0.9) brightness(0.6);
+        }
+
+        .videoWrapper {
+        position: relative;
+        padding-bottom: calc(var(--aspect-ratio, .5625) * 100%); 
+        height: 0;
+        }
+
+        .videoWrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30%;
+        height: 100%;
+        }
+
+    </style>
+
+    <style>
+        .center {
+            text-align: center}
+
+        .right {
+            position: absolute;
+            right: 0px;
+            width: 300px;
+            border: 3px solid #73AD21;
+            padding: 10px;}
+
+        .left {
+            position: absolute;
+            left: 100px;}
+
+        .left_small {
+            position: absolute;
+            left: 0px;}
+
+        .toc_list {
+            font-size:60px;
+            text-align:left; 
+            margin: 0 50px;
+            position: absolute;
+            left: 200px; }
+
+        .my_ul {
+            /* font-size:60px; */
+            text-align:left; 
+            margin: 0 50px;
+            position: absolute;
+            left: 100px;}
+
+        .toc_nested_list {
+            margin: 0 50px;}
+
+        ul.space_list li { margin-bottom: 0.7em; }
+
+        ol {
+            counter-reset: item;}
+
+        ol > li {counter-increment: item;}
+
+        ol ol > li {display: block;}
+
+        ol ol > li:before {
+            content: counters(item, ".") ". ";
+            margin-left: -20px;}
+
+    </style>
+</head>
+<!--  
+********** Body ***********
+-->
+<body>
+    <div id="impress" class="impress-speaker" data-transition-duration="2000">
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+		<!-- <div class="step slide center" data-rel-x="3000" data-y="0" data-rotate="0"  data-rotate="0" data-scale="1">
+            <h4p>
+                <br>
+                The Panel Interview 
+            </h4p>
+            <br>
+            <h4p>
+                for 
+            </h4p>
+            <br>
+            <br>
+            <br>
+			<h1p>
+                Research Engineer - CFD/Methods
+                <br>
+                <br>
+            </h1p>
+            <h1p style="font-size: 45px;">
+                @
+			</h1p>
+            <h1p style="font-size: 120px;">
+                GE Aerospace
+			</h1p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h4pp>
+                Mehdi Badri Ghomizad <br>
+            </h4pp>
+			<h5pp>
+			  <font size="5"> 11$^{th}$ April 2025</font>
+			</h5pp>
+            <div class="notes">
+                Good afternoon everyone! my name Mehdi Badri, and I appreciate the opportunity to share a bit about my background 
+                as well as the work I’ve done in CFD and numerical modeling. <br>
+                ___Today, I will describe two projects in episodes: the first one focuses on harnessing water energy and the other on improving computational efficiency. <br>
+                ___I will also briefly discuss the validation process, will touch upon the numerical methods, and conclude by explaining why I believe I am a good fit for your team. <br>
+            </div>
+        </div> -->
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-left: -60px;" data-rel-x="3000" data-y="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2 class="center">
+                <br>
+                <span style="color:rgb(0, 0, 0);"> <small >Episode I:<br></small>Harnessing the Water Energy</span>
+                <br>
+                <br>
+                <br>
+                <span style="color:rgb(162, 166, 166);"><small >Episode II:<br></small>Improving Computational Efficiency Further</span>
+            </h2>
+            <div class="notes">
+                _In the first epsode I'll explain how we can harness water energy more effectively using computational modeling
+            </div>
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-left: -60px;" data-rel-x="3000" data-y="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2>
+                <small >Episode I:<br></small> Harnessing the Water Energy
+            </h2>
+            <div class="column" style="width:50%; margin-left: -40px;">
+                <video   autoplay  controls="controls" preload="true"  muted loop width="400" height="450" calss="center">
+                    <source src="media/video/result/Water_Turbine.MP4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="column" style="width:50%">
+                <video   autoplay  controls="controls" preload="true"  muted loop width="400" height="450" calss="center">
+                    <source src="media/video/result/VIVACE.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <p class="left" style=" margin-top:720px"><small>Movie credit (right panel): Marine Renewable Energy Lab @ UMichigan</small></p>
+            <div>
+                <ul>
+                    <li style="text-align: center;  margin-left: -125px; line-height:1.7; padding:0px; list-style-type: none;">
+                        What are the effects of kinematic and dynamic parameters?
+                    </li>
+                    <li style="text-align: center;  margin-left: -125px; line-height:1.7; padding:0px; list-style-type: none;">
+                        What if we have a large, complex system of turbines?
+                    </li>
+                    <li style="text-align: center; margin-left:-125px; line-height:1.7; padding:0px; list-style-type: none;">
+                        How can we maximize the benefits of these technologies?
+                    </li>
+                </ul>
+            </div>
+            <div class="notes">
+                ___Let me begin by explaining our plan<br>
+                ___Here we see two turbines, both designed for shalow watres: a hydrokinetic turbine on the left and a vortex induced vibration-based turbine on the right. <br>
+                ___The goal was to study them in detail, improve their performance, <br> 
+                ___plus we were asked to understand effects of physical parameters and complex interactions, including tandem and coupled systems<br>
+                ___As you can imagine, these tasks are nearly impossible to accomplish using only experimental settings <br>
+                ___So we developed a very customized numerical toolset and we ran numerous simulations to get the details we needed
+
+            </div>
+        </div>
+
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-left: -60px;" data-rel-x="3000" data-y="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2>
+                <small >Episode I<br></small> Concerns Regarding Computational Approaches
+            </h2>
+            <ul style="margin-top: -40px; padding:0px">
+                    <br>
+                    <ul > 
+                        <li class="justified-text">
+                            <strong>Moving Boundaries:</strong> Challenge in mesh generation
+                        </li>
+                    </ul>
+                <br>
+                    <ul>
+                        <li class="justified-text">
+                            <strong>Complicated Physics:</strong> Turbulence and fluid-structure interaction
+                        </li>
+                    </ul>
+                <br>
+                    <ul >
+                        <li class="justified-text">
+                            <strong>Computational Costs:</strong> Associated with large systems
+                        </li>
+                    </ul>                    
+                    <br>
+                    <ul >
+                        <li class="justified-text">
+                            <strong>Multiphysics Challenges:</strong> Heat transfer and cavitation
+                        </li>
+                    </ul>
+                    <br>
+                    <ul >
+                        <li class="justified-text">
+                            <strong>Accuracy of the results</strong>
+                        </li>
+                    </ul>
+            </ul>
+            <div class="notes">
+                ___To make a better relationship with the simulations, let me briefly explain our numerical methodology  and reasons behind the development of a new solver<br>
+                <!-- ___Therefore, I believe, the simulations can be more easily understood <br> -->
+                <!-- ___But bear with me, we'll get to the more interesting parts soon<br> -->
+                ___As I told you, we had to conduct several simulations.<br>
+                ___For these simulations, we faced major challenges like moving boundaries, turbulence, high computational costs, and heat transfer (cavitation) <br>
+                __ So it called for smarter numerical strategies.<br>
+                ___The smarter nummerical strategy for us was the immersed boundary method.
+            </div>
+        </div> 
+
+        <!--
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -15px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2 >
+                <small >Episode I:<br></small> Where Did We Begin?
+            </h2>
+            <div class="column" style="width:70%; margin-left: -100px; margin-top:75px" >
+                <!-- <ul > -->
+                    <div class="column" style="width:50%">
+                        <ul>
+                        <li style="text-align: left; margin: 40px; padding:10px;">
+                            Parallelized 
+                        </li>
+                        <li style="text-align: left; margin: 40px; padding:10px;">
+                            Staggered grids             
+                        </li>
+                        <li style="text-align: left; margin: 40px; padding:10px;">
+                            Turbulence models 
+                        </li>
+                        <li style="text-align: left; margin: 40px; padding:10px;">
+                            Multiphysics equations
+                        </li>
+                        </ul>
+                    </div>
+                    <div class="column" style="width:50%; margin-left:-100px; margin-top:20px;">
+                        <ul>
+                        <li style="text-align: left; margin: 40px; padding:10px;">
+                            Energy-Conservative  
+                        </li>
+                        <li style="text-align: left; margin: 40px; padding:10px;">
+                            Curvilinear mesh 
+                        </li>
+                        <li style="text-align:justify; margin-left:40px; line-height:1.5; padding:15px 5px;">
+                            Efficient Poisson solver (FFT-bassed)
+                        </li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="column" style="width:30%; margin-top:55px;">
+                <img src="media/img/channel_domain.png" alt="Snow" style="width:100%">
+                <br></br>
+                <img src="media/img/channel_1.webp" alt="Snow" style="width:100%">
+            </div>
+            <div class="notes">
+                    ___When I joined the team, they already had a well-developed solver with several advanced features. <br>
+                    ___ ** __<br>
+                    ___However, it had a major limitation; it could not effectively model complex geometries or moving boundary problems.<br>
+                    ___So the main objective was to incorporate the immersed boundary method into the solver. 
+            </div>
+        </div> 
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -75px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2>
+                <small >Episode I:<br></small> The Planned Actions
+
+            </h2>
+            <div class="column" style="width:50%; margin-top:-100px;">
+                <ul>
+                <li style="text-align:justify; margin: 40px; padding:10px;">
+                    Adding high-fidelity Immersed Boundary Method (IBM)       
+                </li>
+                <li style=" text-align:justify; margin: 40px; padding:10px;">
+                    Leveraging the Graphics Processing Unit (GPU) for acceleration 
+                </li>
+                <li style="text-align:justify; margin: 40px; padding:10px;">
+                    Adopting wall function(s) for turbulence modeling with IBM
+                </li>
+                <li style="text-align:justify; margin: 40px; padding:10px;">
+                    Adding heat transfer models 
+                </li>
+            </ul>
+            </div>
+            <div class="column" style="width:50%; margin-top:-100px;">
+                <ul>
+                <li style="text-align:justify; margin: 40px; padding:10px;">
+                    Adding Discrete Element Method (DEM)
+                </li>
+                <li style="text-align:justify; margin: 40px; padding:10px;">
+                    Modernizing the code for pipeline ecosystem and optimization
+                </li>
+                <li style="text-align:justify; margin: 40px; padding:10px;">
+                    <span style="color:rgb(0,139,139);"><i>Developing new Elliptical equations (Poisson & Helmholtz) solver</i></span>             
+                </li>
+                
+                <li style="text-align:justify; margin: 40px; padding:10px;">
+                    <span style="color:rgb(0,139,139);"><i>Validation & Verification</i></span>  
+                </li>
+            </ul>
+            </div>
+            <div class="notes">
+                ___Aside from adding an immersed boundary to the solver, we also found several important enhancements that needed to be added into the new software<br>
+                ___So, we created a to-do list to guide the process. <br>
+                ___This list holds<br>
+                ___ ** ___ <br>
+                ___One of our biggest focuses was modernizing the code for a pipeline ecosystem and optimization.<br>
+                ___This meant restructuring the solver to be more modular, scalable, and efficient, allowing seamless integration with different computational frameworks lin DAKUTA.<br>
+                ___But for this presentation I focus on only two steps <br>
+                __** <br>
+                ___And you may ask, why I decided to talk about the Elliptical equations solver
+            </div>
+        </div>
+
+    <!--  
+    **********************************************************************************************************************************************
+    **********************************************************************************************************************************************
+    -->
+    <!-- <div class="step slide left" style="margin-top: 0px; margin-left: -70px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+        <h2 >
+            <small >Episode I:<br></small> What Is the Immersed Boundary Method?
+        </h2>
+        <div class="column center" style="width:45%; margin-top: 50px">
+            <ul>
+                <li style="text-align: justify; margin: 10px; padding:10px;">Utilizes Simple Orthogonal Grids </li>
+                <li style="text-align: justify; margin: 10px; padding:10px;">Outstandingly Efficient</li>
+                <li style="text-align: justify; margin: 10px; padding:10px;">Seamlessly Integrates with Existing Solvers </li>
+                <li style="text-align: justify; margin: 10px; padding:10px;">Delivers Reliable Accuracy</li>
+                <li style="text-align: justify; margin: 10px; padding:10px;">Effective for Moving Boundaries</li>
+            </ul>
+        </div> 
+        <div class="column center" style="width:50%; margin-top: 75px">
+            <br>
+            <img src="media/img/IBM_2.png" alt="Snow" style="width:100%">
+        </div>
+    </div> -->
+
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -90px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2 >
+                <small >Episode I:<br></small> Why a New Poisson Solver? 
+            </h2>
+            <div class="column center" style="width:50%; margin-top: -130px;">
+                <ul>
+                    <li style="text-align: center; margin: 10px; padding:0px; list-style: none;"> <h4><u>Observations</u></h4></li>
+                    <ul> 
+                        <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;">
+                            Inconsistency between velocity and pressure
+                        </li>
+                        <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;">
+                            Spurious oscillation in force and temperature ($\mathrm{Nu}$ number)
+                        </li>
+                        <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;">
+                            Numerical boundary layer
+                        </li>
+                        <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;">
+                            Low convergence rate wrt. grid resolution
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="column center" style="width:50%; margin-top: -130px;">
+                <ul>
+                    <li style="text-align: center; margin: 10px; padding:0px; list-style: none;"> <h4><u>Reactions</u></h4></li>
+                    <ul> 
+                        <li style="text-align:justify; margin: 1px; line-height:1.6; padding:10px 2px;">
+                            Switching to iterative solvers
+                        </li>
+                        <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;">
+                            Using schedule relaxation Jacobi (SJR) for efficiency and simplicity:
+                            <ul>
+                                <li>
+                                    <i>Utilizing the extrapolation full multigrid (EXFMG)</i>
+                                </li>
+                                <li>
+                                    <i>Leveraging GPU acceleration</i>
+                                </li>
+                                <li>
+                                    <i>Imposing Neumann boundary condition at the immersed boundary</i>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="notes">
+                <!-- ___During development, we identified the Poisson solver needed improvement.<br> -->
+                ___While our existing FFT-based Poisson solver was highly efficient, we observed several issues that can be associated with FFT-based solvers<br>
+                ___ ** ___ <br>
+                ___To address these challenges, we moved from an FFT-based solver to an iterative approach, specifically Scheduled Relaxation Jacobi (SJR). <br>
+                ___This method offered both efficiency and simplicity<br>
+                ___Thanks to SJR, we could develop a modern multigrid techniques and effectively utilize GPUs.<br>
+                ___which remarkably increased our preformence <br>
+                ___Plus, For the first time in th history of immeresed boundary, we imposed Numman BC on pressure for better accuracy.<br>
+                ___Now, I think we have a good idea of the solver and its power. <br>
+                ___Let's move on to the next step and share some case studies mainly for validation purposes.
+            </div>
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <!-- <div class="step slide left" style="margin-top: 0px; margin-left: -50px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2 >
+                <small >Episode I:<br></small> Scheduled Jacobi Relaxation For Elliptical Equations
+            </h2>
+            <div class="column center" style="width:40%; margin-top: -10px;">
+                <img src="media/img/poisson/grid_1024_P_6_9_15.jpeg" style="width:100%; text-align:center;  margin-left: 0px;">
+            </div>
+            <div class="column center" style="width:50%; margin-top:-40px;">
+                <ul>
+                    <li style="text-align:justify; margin: 1px; line-height:1.75; padding:10px 2px;"> Enjoys extremely compact stencils</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.75; padding:10px 2px;"> Has a high potential for GPU acceleration</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.75; padding:10px 2px;"> It may be enhanced by a favorable initial condition</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.75; padding:10px 2px;"> Its weights are calculated in advanced</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.75; padding:10px 2px;"> The residual does not reach saturation</li>
+                </ul>
+            </div>
+            <div class="notes">
+                ___These are the main advantages of the SJR
+                ___Has extremely compact stencils – leading to better computational efficiency <br>
+                ___Has high potential for GPU acceleration
+                ___Can be enhanced by a favorable initial condition – further accelerating convergence<br>
+                ___Has precomputed weights – reducing computational overhead <br>
+                ___From the figures on the left, we can see that:"
+                ___SJR is as efficient as FFT-based solvers, achieving similar performance while overcoming their geometric limitations.<br>
+                ___Now lets see some cases.
+                
+                ___It can be seamlessly integrated with embedded boundary techniques, allowing for accurate modeling of boundaries inside the domain without modifying the grid structure.
+                ___Another major advantage of this efficient Poisson solver with embedded boundary conditions is its impact on turbulence modeling accuracy.
+                ___Now that we have established the efficiency and robustness of our Poisson solver, let's move on to Validation & Verification, where we ensured its accuracy through rigorous testing.
+            </div>
+        </div> -->
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <!-- <div class="step slide left" style="margin-top: 0px; margin-left: -60px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2 >
+                <small >Episode I:<br></small>Validation
+            </h2>
+            <div class="column center" style="width:48%; margin-top:-100px;">
+                <ul>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> Comparison with experimental data and analytical solutions</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> Simplified cases were considered</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> Fixed and movinging boundary</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> Heat transfer (forced and natural)</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> 2D and 3D cases</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> Grid &  Time-step independence study </li>
+                </ul>
+            </div>
+            <div class="column center" style="width:48%; margin-top:-100px; margin-left:10px;">
+                <ul>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> Three different immersed boundary methods </li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> The effect of interpolation schemes </li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> The effect of velocity-pressure coupling</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> The effect of the Poisson solver on time-accuracy</li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:10px 2px;"> The effect of the turbulence models</li>
+                </ul>
+            </div>
+            <div class="notes">
+                ___We validated our solver in several ways, including comparisons with experimental data to confirm real-world accuracy, <br>analytical solutions to verify fundamental correctness, <br> and benchmark numerical cases to align with established CFD softwares.<br>
+                ___Through these validation steps, we demonstrated that our solver could accurately capture flow physics, boundary interactions, and energy transfer while maintaining computational efficiency.<br>
+                ___In the next few slides, I will briefly go over some key validation cases that demonstrate the most important feature of our solver 
+            </div>
+        </div> -->
+
+         <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -65px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2 >
+                <small >Episode I:<br></small> Falling Sphere
+            </h2>
+            <div class="column center" style="width:45%; margin-top: -50px;">
+                <ul>
+                    <li style="text-align: left; margin: 10px; padding:10px;"> Moving boundaries and collision </li>
+                </ul>
+                <div class="fade-in fade-out">
+                    <img src="media/img/validation/Single_Vort.svg" alt="Snow" style="width:100%">
+                </div>
+                <!-- <div class="fade-in fade-out"> -->
+                <!-- <div class="videoWrapper" style="--aspect-ratio: 3.1 / 4;">  -->
+                    <!-- <iframe  width="240" height="650" src="media/video/result/Vort_Multiple2.mp4?autoplay=1&mute=1&controls=1"  frameborder="100" allow="autoplay;"></iframe>
+                    <iframe  width="240" height="650" src="media/video/result/9D_TEMP.mp4?autoplay=1&mute=1&controls=1"  frameborder="100" allow="autoplay;"></iframe> -->
+                <!-- </div> -->
+                <!-- </div> -->
+            </div>         
+            <div class="column center" style="width:55%">
+                <img src="media/img/validation/V_Y_Single_Cylinder.svg" alt="Snow" style="width:100%">
+                <ul>
+                    <li style="text-align: left; margin: 10px; padding:10px;"> Sharp-direct forcing in comparison with experimental data</li>
+                </ul>
+            </div>
+            <div class="notes">
+                ___We validated our solver in several ways, including comparisons with experimental data to confirm real-world accuracy<br>
+                ___One of the critical validation tests was a falling sphere in a fluid at rest and  colliding with the wall. <br>
+                ___This test is particularly challenging due to the need for accurate force predictions and correct handling of the impact dynamics.
+            </div>
+        </div>
+
+         <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <!-- <div class="step slide left" style="margin-top: 0px; margin-left: -65px;" data-rel-x="0" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2 >
+                <small >Episode I:<br></small> Falling Sphere
+            </h2>
+            <div class="column center" style="width:45%; margin-top: -50px;">
+                <ul>
+                    <li style="text-align: left; margin: 10px; padding:10px;"> Moving boundaries and collision </li>
+                </ul>
+                <div class="fade-in fade-out">
+                    <iframe  width="240" height="650" src="media/video/result/Vort_Multiple2.mp4?autoplay=1&mute=1&controls=1"  frameborder="100" allow="autoplay;"></iframe>
+                    <iframe  width="240" height="650" src="media/video/result/9D_TEMP.mp4?autoplay=1&mute=1&controls=1"  frameborder="100" allow="autoplay;"></iframe>
+                </div>
+            </div>         
+            <div class="column center" style="width:55%">
+                <img src="media/img/validation/V_Y_Single_Cylinder.svg" alt="Snow" style="width:100%">
+                <ul>
+                    <li style="text-align: left; margin: 10px; padding:10px;"> Sharp-direct forcing in comparison with experimental data</li>
+                </ul>
+            </div>
+            <div class="notes">
+                ___We validated our solver in several ways, including comparisons with experimental data to confirm real-world accuracy<br>
+                ___One of the critical validation tests was a falling sphere in a fluid at rest and its collision with the boundary. <br>
+                ___This test is particularly challenging due to the need for accurate force predictions and correct handling of the impact dynamics.
+            </div>
+        </div> -->
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -65px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2 >
+                <small >Episode I:<br></small> Heat Transfer
+            </h2>
+            <div class="column center" style="width:50%">
+                <ul>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:20px 2px;">
+                        Natural, forced, and mixed convection
+                    </li>
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:20px 2px;">
+                        Phase change: melting and evaporation
+                    </li>
+                    <!-- <li style="text-align: left; margin: 10px; padding:20px;"> Natural, forced, and mixed convection </li> -->
+                    <!-- <li style="text-align: left; margin: 10px; padding:20px;"> Accurate Numann boudary condition for IBM </li> -->
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:20px 2px;">
+                        Relatively complex shape
+                    </li>
+                    <!-- <li style="text-align: left; margin: 10px; padding:20px;"> Relatively complex shape </li> -->
+                    <li style="text-align:justify; margin: 1px; line-height:1.7; padding:20px 2px;">
+                        Stability in a wide spectrum of physical conditions ($\mathrm{Ra}$ number)
+                    </li>
+                    <!-- <li style="text-align: left; margin: 10px; padding:20px;"> Stability in a wide spectrum of physichal conditions ($\mathrm{Ra}$ number)</li> -->
+                </ul>
+            </div>
+            <div class="column center" style="width:50%; margin-top: -250px;">
+                <ul>
+                    <img src="media/img/validation/RIK_1.svg" alt="Snow" style="width:90%;">
+                </ul>
+            </div>
+            <div class="notes">
+                ___Beyond fluid mechanics, our solver also proved capable of handling complicated-boundary heat transfer problems. <br>
+                ___On the left, you see a case we validated against experimental bench marks<br>
+                ___On the right, we extended our simulations to more complex boundaries, showing the solver's predictive power.<br>
+                ___Additionally, our solver is albe to handle even more complex problems, including phase change and moving boundaries in turbulent flows, which makes it highly versatile for real-world applications.
+            </div>
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -65px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2 >
+                <small >Episode I:<br></small> Hovering of a Zero-Thickness Plate
+            </h2>
+            <div class="column center" style="width:45%">
+                <ul>
+                    <li style="text-align: left; margin: 10px; padding:10px; margin-top: -100px;"> Boundaries with zero thickness </li>
+                    <li style="text-align: left; margin: 10px; padding:10px;"> Predefined motion </li>
+                </ul>
+                <img src="media/img/validation/Flat_Plate_Stencil.svg" alt="Snow" style="width:77.5%"> 
+            </div>
+            <div class="column center" style="width:55%; margin-top:-100px;">
+                <img src="media/img/validation/FlatPlate_Vort.svg" alt="Snow" style="width:85%;">
+            </div>
+            <div class="notes">
+                ___Another important case was simulating a hovering zero-thickness plate in a fluid at rest. <br>
+                ___Since real-world plates always have a small but finite thickness, we compared our results to 
+                experimental tests of a very thin plate, and the agreement was excellent.<br>
+                ___This case showed that our solver could accurately handle zero-thickness structures, making it highly applicable to biomechanical cases.
+            </div>
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -100px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2 >
+                <small >Episode I:<br></small>Bio-Mech. Applications 
+            </h2>
+            <div class="video-grid" style="margin-top: -250px;">
+                    <video autoplay class="rotated-video" controls="controls" preload="true"   muted loop  calss="center">
+                        <source src="media/video/validation/jelly.mp4" type="video/mp4">
+                    </video>
+                    <video   autoplay id="video_demo0" poster="images/dmm_background.jpg" controls="controls" preload="true"  muted loop width="400" height="400" calss="center">
+                        <source src="media/video/validation/Re100_MOVIE.mp4" type="video/mp4">
+                    </video>
+                    <video   autoplay id="video_demo0" poster="images/dmm_background.jpg" controls="controls" preload="true"  muted loop width="400" height="350" calss="center">
+                        <source src="media/video/validation/pump.mp4" type="video/mp4">
+                    </video>
+                    <video   autoplay id="video_demo0" poster="images/dmm_background.jpg" controls="controls" preload="true"  muted loop width="400" height="350" calss="center">
+                        <source src="media/video/validation/output.mp4" type="video/mp4" />
+                    </video>
+            </div>
+            <div class="notes">
+                ___With this capability, we were able to apply the solver to various biomechanical problems, with both Newtonian and non-Newtonian flows.<br>
+                ___This allowed us to model cases such as blood flow around flexible membranes and robatic fishes.
+            </div>
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -40px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2>
+                <small >Episode I:<br></small> Result &mdash; An Award Winner Design
+            </h2>
+
+            <ul style="list-style: none;">
+                <li> </li>
+            </ul>
+            <br>
+            <div class="column" style="width:50%; margin-top:-100px;">
+                <video   autoplay  controls="controls" preload="true"  muted loop width="400" height="550" calss="center" style="margin-left: -50px">
+                    <source src="media/video/result/MehdiGFM.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="column" style="width:49%; margin-left: -50px;margin-top:-100px;"">
+                    <video   autoplay  controls="controls" preload="true"  muted loop width="400" height="550" calss="center">
+                        <source src="media/video/result/Water_Turbine.MP4" type="video/mp4" />
+                    </video>
+            </div>
+            <p class=" center">Vertical hydrokinetic turbine for designing an optimized coupled system</p>
+            <p class=" center">Received <i><u>Ericsson Innovation Award</u></i> for its outstanding performance (2019)</p>
+            <div class="notes">
+                ___Alrigh, lets get back to the main projects.<br>
+                ___In the left movie, you see the simulation of a vertical hydrokinetic turbine. <br>
+                ___Although we used a URANS model, the solver was able to capture very detailed flow features, including
+                ___the formation of turbulent vortices, <br>
+                ___Also was accurate in prediction of hydrodynamic forces, closely matching experimental observations.<br>
+                ___I have to point out that this level of fidelity was sufficient not only for analysis but also for optimization.<br>
+                ___Using this simulation framework, we were able to optimize the turbine design and propose a novel coupled system for energy harvesting. <br>
+                ___And I have to highlight here that this innovative work was recognized with the Erikson Innovation Award for Oceanic Systems in 2019.<br>
+                <!-- ___Let's now take a look at some additional results and performance evaluations for these systems -->
+
+            </div>
+        </div>
+        
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <!-- <div class="step slide left" style="margin-top: 0px; margin-left: -80px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2>
+                <small >Episode I:<br></small> Result 
+            </h2>
+            <div class="column" style="width:50%; margin-top:0px;">
+                <img src="media/img/turbine/Turbine_result.png" style="width:85%; text-align:center; margin-left: 25px; margin-top: -90px; scale:1;">
+            </div>
+            <div class="column" style="width:50%; margin-top:-50px; margin-left:-20px;">
+                <img src="media/img/turbine/distributed_pressure.jpg" style="width:50%; margin-left:200px;  margin-top:-200px; scale:1;">
+                <ul>
+                    <li style="text-align:justify; margin-left:-20px; line-height:1.5; padding:15px 5px;">
+                        Different configurations, blockage ($\beta$), angles ($\Phi$), and tip speed ratios ($\lambda$) were investigated
+                    </li>
+                    <li style="text-align:justify; margin-left:-20px; line-height:1.5; padding:15px 5px;">
+                        Surface pressure distribution is available for better optimization (19% improvement)
+                    </li>
+                </ul>
+            </div>
+            <div class="notes">
+                ___Okay, I think it is a good time to share some quantitative results<br>
+                ___Using our computational tools, we explored different turbine configurations, including variations in blockage ratio, spacing, and orientation.<br>
+                ___In the left figure you see the velocity fields for different turbine configurations, helping us understand flow interactions and wake behavior.<br>
+                ___The upper figure illustrates the pressure distribution on the surface of a blade located in a critical region—this was key for assessing loading and guiding structural optimization.<br>
+                ___One of the major advantages of our approach is that, for many of these cases, conducting experimental tests or using traditional mesh-based methods would have been virtually impossible—either due to geometric complexity, cost, or time limitations.<br>
+                ___Our solver's immersed boundary capability allowed us to handle these scenarios with flexibility and accuracy."
+            </div>
+        </div> -->
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -40px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2>
+                <small >Episode I:<br></small> Result
+            </h2>
+            <ul style="list-style: none;">
+                <li> </li>
+            </ul>
+            <br>
+            <div class="column" style="width:50%; margin-top:-100px;">
+                <video   autoplay  controls="controls" preload="true"  muted loop width="400" height="550" calss="center" style="margin-left: -50px">
+                    <source src="media/video/result/VIVACE.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="column" style="width:49%; margin-left: -50px;margin-top:-100px;"">
+                    <video   autoplay  controls="controls" preload="true"  muted loop width="400" height="550" calss="center">
+                        <source src="media/video/result/VIV_cylinder.mp4" type="video/mp4" />
+                    </video>
+            </div>
+            <p class=" center">Vortex-Induced Vibration for Aquatic Clean Energy</p>
+            <div class="notes">
+                ___In addition to hydrokinetic turbines, we also applied our solver to Vortex-Induced Vibration (VIV) systems<br>
+                ___This turbine was interoduced in 2010 for extraxting energy in the oceans. <br>
+                ___We simulated VIV for a single cylinder and verified results with experiments and Fluent. <br>
+                ___Then we built a high-throughput pipeline to run massive parametric studies for optimization.
+            </div>
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -40px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000">
+            <div class="column" style="width:50%; margin-top:200px;">
+                <img src="media/img/fig_wakeModes-crop_M.jpg" style="width:85%; text-align:center; margin-left: 25px; margin-top: -100px; scale:1.1;">
+                <p class=" center"> A comprehensive parameter study was conducted to enhance understanding and optimize energy harvesting (~23%)</p>
+            </div>
+            <div class="column" style="width:50%; margin-top:200px;">
+                <img src="media/img/fig_wakeModes-crop_D.jpg" style="width:85%; text-align:center; margin-left:50px; margin-top:-90px; scale:1.1;">
+            </div>
+            <div class="notes">
+                ___Now lets see the effect of the different configuration of the system <br>
+                ___We conducted a huge number of simulations, thanks to the advanced feature of our solver that let us employ all computational resources, continuously<br>
+                __**__
+                ___By using this data, we could enhance the system's efficiency by 23%.<br>
+                
+            </div>
+        </div>
+        
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-left: -60px;" data-rel-x="3000" data-y="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <!-- <h2>
+                Professional Achievements
+            </h2> -->
+            <h2 class="center">
+                <br>
+                <span style="color:rgb(162, 166, 166);"> <small >Episode I:<br></small>Harnessing the Water Energy</span>
+                <br>
+                <br>
+                <br>
+                <span style="color:rgb(0, 0, 0);"><small >Episode II:<br></small>Improving Computational Efficiency Further</span>
+            </h2>
+            <dive class="notes">
+                ___Moving into Episode two, I'd like to talk about our work on improving computational efficiency by adaptive mesh refinement method.
+            </dive>
+        </div>
+
+    <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -40px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000">
+            <h2>
+                <small >Episode II:<br></small>Adaptive Mesh Refinement
+            </h2>
+            <div class="column center" style="width:100%; margin-top:-80px">
+                <img src="media/img/amr/0.png" style="width:50%; text-align:center;  margin-left: -100px; margin-top: 100px">
+            </div>
+            <!-- <div class="column center" style="width:48%; margin-top:-100px;">
+                <ul>
+                <li style="text-align:justify; margin-left:-40px; line-height:1.4; padding:12px 5px;"> Large-scale code capable of multiphysics simulation (primarily for the automotive industry)</li>
+                <li style="text-align:justify; margin-left:-40px; line-height:1.4; padding:12px 5px;"> The code was designed to run on a petascale K-Computer (京)</li> 
+                <li style="text-align:justify; margin-left:-40px; line-height:1.4; padding:12px 5px;"> The code was equipped with different immersed boundaries for complex geometries</li>
+                <li style="text-align:justify; margin-left:-40px; line-height:1.4; padding:12px 5px;"> The code was not capable of moving boundary methods and dynamics mesh adaptation</li>               
+                </ul>
+            </div> -->
+            <div class="notes">
+                ___After conducting these simulations, we realized the importance of the efficiency for real-world cases <br>
+                ___So we decided to make the solver better by adding adaptive mesh refinement methods
+                <!-- ___In this project, we needed maximum efficiency from a simulation code that was designed for a relatively old supercomputer.
+                ___The existing code was based on the immersed boundary method and was capable of running large-scale simulations, but it had two major limitations: <br>
+                __ One, It could not accurately capture moving boundary conditions, and <br>
+                __ Two, it lacked dynamic mesh adaptation, which limited both efficiency and resolution control."<br>
+                ___To overcome these challenges, we implemented dynamic mesh refinement and coarsening capabilities into the solver.<br>
+                __This allowed us to begin with a coarse mesh and refine only the critical regions of the domain during the simulation, based on flow features and error estimation. -->
+            </div>
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <!-- <div class="step slide left" style="margin-top: 0px; margin-left: -40px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000">
+            <h2>
+                <small >Episode II:<br></small>Adaptive Mesh Refinement &mdash; Validation
+            </h2>
+            <div class="column center column center fade-in fade-out" style="width:50%; margin-top: -50px">
+                <img src="media/img/amr/fig_tylor_vortex_b-eps-converted-to_page-0001.jpg" style="width:100%; text-align:center;  margin-left: -100px; margin-top: 0px">
+            </div>
+            <div class="column center" style="width:50%; margin-top: -80px">
+                <ul>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">Taylor--Green vortex </li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">Manufactured </li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">There is an exact solution </li>
+                    $$\begin{align}
+                    u &= -e ^{-2 \nu t} \cos x \sin y, \\
+                    v &= -e ^{-2 \nu t} \sin x \cos y, \\
+                    p &= \frac{-e ^{-2 \nu t}}{4} \left( \cos 2x + \cos 2y \right).
+                    \end{align}$$
+                </ul>
+            </div>  
+            <div class="notes">
+                ___Implementing AMR is one thing; ensuring accuracy is another<br>
+                ___Therefore we verified our solver with a manufactured solution and confirmed its accuracy and robustness. <br>
+                ___The first and third quarters are dynamically refined and de-refined
+            </div>
+        </div> -->
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <!-- <div class="step slide left" style="margin-top: 0px; margin-left: -40px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000">
+            <h2>
+                <small >Episode II:<br></small>Adaptive Mesh Refinement &mdash; Result
+            </h2>
+            <div class="column center" style="width:50%; margin-top:-10px">
+                <ul>
+                    <li style="text-align:justify; margin-left:-40px; line-height:2; padding:15px 5px;">The $L_{\infty}$ error norms as functions of mesh resolution ($h$) at $t^{\ast} = 0.03$ </li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:2; padding:15px 5px;">The new methodology does not accumulate errors in pressure during the simulation </li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:2; padding:15px 5px;">(a) Vorticity (b) Pressure</li>         
+                </ul>
+            </div> 
+            <div class="column center fade-in fade-out" style="width:50%; margin-top:-20px; margin-left:-10px">
+                <img src="media/img/amr/fig_taylor_combined_stat.svg" style="width:90%; text-align:center;  margin-left: 0px; margin-top: 0px">
+                <img src="media/img/amr/fig_taylor_dyn_timeError_c-eps-converted-to_page-0001.jpg" style="width:50%; text-align:center;  margin-left: 0px; margin-top: 0px">
+            </div>
+            <div class="notes">
+                ___When you look at the upper figure, you see that our advanced divergence-free methos results in better convergence rate and smaller error
+                comparing to the tranditional AMR<br>
+                ___And in the lower figure  you can see the solver maintained high accuracy during the time, in contrast to old methods.<br>
+                ___This resut verifies that the solver can be effective in handling high-turbulence flows.
+            </div> 
+        </div> -->
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -40px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000">
+            <h2>
+                <small >Episode II:<br></small>Adaptive Mesh Refinement &mdash; Result
+            </h2>
+            <div class="column center" style="width:50%; margin-top:-55px">
+                <ul>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The flow over a fixed cylinder at $\mathrm{Re}=100,\,200$</li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The velocity (vorticity) is correctly captured without dissipation</span></li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The computation costs are $67$% lower without sacrificing quality </li>                       
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The pressure is correctly captured without dissipation</li>
+                </ul>
+            </div> 
+            <div class="column center fade-in fade-out" style="width:50%; margin-top: -0px">
+                <video  autoplay  controls="controls" preload="true"  muted loop  calss="center" style="margin-left: 0px" >
+                    <source src="media/video/amr/Vorticity_100_200.mp4" type="video/mp4"/>
+                </video>
+            </div>
+            <div class="notes">
+                ___We next considered a classic CFD test case: a cylinder in uniform flow. <br>
+                __This simulation helped us confirm that our solver behaves accurately under conditions where the boundary is fixed but the domain changes dynamically. <br>
+                __We were satisfied to see that it captured the vorticity field effectively<br>
+                ____________________________________________________________________________<br>
+                ____________________________________________________________________________<br>
+                __Next, we turned our attention to calculating pressure. <br> 
+                __While classical immersed boundary methods often struggle to accurately capture the pressure boundary condition at an object’s surface, our Poisson solver makes this far more precise. <br>
+                __Here, you can clearly see how smoothly and accurately the pressure develops at the boundary throughout the domain.<br>
+            </div> 
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -40px;" data-rel-x="0" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="0">
+            <h2 class="fade-in fade-out">
+                <small >Episode II:<br></small>Adaptive Mesh Refinement &mdash; Result
+            </h2>
+            <div class="column center fade-in fade-out" style="width:50%; margin-top:-55px">
+                <ul>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The flow over a fixed cylinder at $\mathrm{Re}=100,\,200$</li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The velocity (vorticity) is correctly captured without dissipation</span></li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The computation costs are $67$% lower without sacrificing quality</li>                       
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The pressure is correctly captured without dissipation</li>
+                </ul>
+            </div> 
+            <div class="column center fade-in fade-out" style="width:50%; margin-top:-0px; transition-delay:0s;;">
+                <video  autoplay  controls="controls" preload="true"  muted loop  calss="center" style="margin-left: 0px" >
+                    <source src="media/video/amr/pressure_100_200.webm" type="video/mp4"/>
+                </video>
+            </div> 
+            <div class="notes">
+                ___We next considered a classic CFD test case: a cylinder in uniform flow. <br>
+                __This simulation helped confirm that our solver behaves accurately under conditions where the boundary is fixed but the domain changes dynamically. <br>
+                __We were satisfied to see that it captured the vorticity field effectively<br>
+                ____________________________________________________________________________<br>
+                ____________________________________________________________________________<br>
+                __Next, we turned our attention to calculating pressure. <br> 
+                __While classical immersed boundary methods often struggle to accurately capture the pressure boundary condition at an object’s surface, our Poisson solver makes this far more precise. <br>
+                __Here, you can clearly see how smoothly and accurately the pressure develops at the boundary throughout the domain.<br>
+            </div>
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left fade-in fade-out" style="margin-top: 0px; margin-left: -40px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000">
+            <h2 class="fade-out">
+                <small>Episode II:<br></small>Adaptive Mesh Refinement&mdash;Result
+            </h2>
+            <div class="column center fade-out" style="width:45%; margin-top:-0px">
+                <ul>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">Two cylinders moving towards each other</li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">Predefined motion with acceleration</li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The Pressure is correctly captured without dissipation</li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The surface pressure is accurately measured</li>                       
+                </ul>
+            </div> 
+            <div class="column center fade-in fade-out" style="width:55%; margin-top:0px; transition-delay:0s;">
+                <img src="media/img/amr/fig_towards_schem-eps-converted-to_page-0001.jpg" style="width:70%; text-align:center;  margin-left: 50px; margin-top: 0px">
+                <img src="media/img/amr/fig_Towards_combined_CdCl-eps-converted-to_page-0001.jpg" style="width:70%; text-align:center;  margin-left: 50px; margin-top: 0px">
+            </div> 
+            <div class="notes">
+                ___After we resolved the initial issues, we tackled problems involving moving boundaries. <br>
+                ___For instance, this example involves two cylinders that first oscillate and then move toward each other. <br>
+                ___Although this might seem like a simple scenario, it's actually quite challenging—especially when calculating the pressure as the cylinders pass one another, which is typically difficult for moving boundary solvers. <br>
+                ___In this video, you can see that not only was the pressure captured accurately, but we also achieved it by an exceptionally low overall resolution<br>
+            </div>
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left fade-out" style="margin-top: 0px; margin-left: -40px;" data-rel-x="0" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="0">
+            <h2 class="fade-out">
+                <small >Episode II:<br></small>Adaptive Mesh Refinement&mdash;Result
+            </h2>
+            <div class="column center fade-in fade-out" style="width:45%; margin-top:-0px">
+                <ul>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">Two cylinders moving towards each other</li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">Predefined motion with acceleration</li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The Pressure is correctly captured without dissipation</span></li>
+                    <li style="text-align:justify; margin-left:-40px; line-height:1.5; padding:15px 5px;">The surface pressure is accurately measured</li>                       
+                </ul>
+            </div> 
+            <div class="column center fade-in fade-out" style="width:55%; margin-top:0px; transition-delay:0s;">
+                <video  autoplay  controls="controls" preload="true"  muted loop  calss="center" style="margin-left:-20px; scale:0.9; margin-top:-75px;" >
+                    <source src="media/video/amr/Vorticity_profiles.webm" type="video/mp4"/>
+                </video>
+            </div>
+            <div class="notes">
+                ___After we resolved the initial issues, we tackled problems involving moving boundaries. <br>
+                ___For instance, this example involves two cylinders that first oscillate and then move toward each other. <br>
+                ___Although this might seem like a simple scenario, it's actually quite challenging—especially when calculating the pressure as the cylinders pass one another, which is typically difficult for moving boundary solvers. <br>
+                ___In this video, you can see that not only was the pressure captured accurately, but we also achieved it by an exceptionally low overall resolution<br>
+            </div> 
+        </div>
+
+         <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <div class="step slide left" style="margin-top: 0px; margin-left: -40px;" data-rel-x="3000" data-y="0" data-rotate-z="0" data-rotate="0" data-scale="1" data-transition-duration="2000" >
+            <h2>
+                <small >Episode II:<br></small> Adaptive Mesh Refinement &mdash; Result
+            </h2>
+
+            <ul style="list-style: none;">
+                <li> </li>
+            </ul>
+            <br>
+            <div class="column" style="width:50%; margin-top:-100px;">
+                <video   autoplay  controls="controls" preload="true"  muted loop width="400" height="550" calss="center" style="margin-left: -50px">
+                    <source src="media/video/result/Rushton_Turbine_1.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <div class="column" style="width:49%; margin-left: -50px;margin-top:-100px;"">
+                    <video   autoplay  controls="controls" preload="true"  muted loop width="400" height="550" calss="center">
+                        <source src="media/video/result/Rushton_Turbine_2.mp4" type="video/mp4" />
+                    </video>
+            </div>
+            <p class=" center">Rushton Turbine at Reynolds=12000</p>
+            <!-- <p class=" center">The coupled system received an award for its outstanding performance</p> -->
+            <div class="notes">
+                ___Alrigh, lets get back to the main projects.<br>
+                ___In the left movie, you see the simulation of a vertical hydrokinetic turbine. <br>
+                ___Although we used a URANS model, the solver was able to capture very detailed flow features, including:<br>
+                ___The formation of turbulent vortices, <br>
+                ___And also was accurate in prediction of hydrodynamic forces, closely matching experimental observations.<br>
+                ___I have to mention here this level of fidelity was sufficient not only for analysis but also for optimization.<br>
+                ___Using this simulation framework, we were able to optimize the turbine design and propose a novel coupled system for energy harvesting. <br>
+                ___This innovative work was recognized with the Erikson Innovation Award for Oceanic Systems in 2019.<br>
+                <!-- ___Let's now take a look at some additional results and performance evaluations for these systems -->
+
+            </div>
+        </div>
+
+        <!--  
+        **********************************************************************************************************************************************
+        **********************************************************************************************************************************************
+        -->
+        <!-- <div class="step slide left fade-in fade-out" style="margin-top: 0px; margin-left:-165px;" data-rel-x="0" data-y="0" data-rotate-y="0" data-rotate="0" data-scale="1" data-transition-duration="2000">
+            <div class="fade-in fade-out" style="transition-delay:0s;">
+                <video autoplay muted loop id="background-video">
+                    <source src="media/video/HDR_movie.mp4" type="video/mp4">
+                </video>
+                <h2 style="margin-top:100px;">
+                    <span style="color:rgb(247, 243, 243);  margin-left:50px;">Why I Can Be a Valuable Asset to Your Team</span>
+                </h2>
+            </div>
+            <p class="left" style=" margin-top:780px; color:rgb(247, 243, 243)"> <small> Credit for Background Pictures:<strong> https://www.hdrinc.com </strong></small></p>
+            <ul class="fade-in fade-out" style="list-style-type: none; margin-top:-20px">
+                <br>
+                <li class="substep" style="color:rgb(247, 243, 243); text-align:center; margin-left:50px; line-height:2.5; padding:15px 5px;">Strong CFD Foundation</li>
+                <li class="substep" style="color:rgb(247, 243, 243); text-align:center; margin-left:50px; line-height:2.5; padding:15px 5px;">Collaborative and Team-Oriented</li>
+                <li class="substep" style="color:rgb(247, 243, 243); text-align:center; margin-left:50px; line-height:2.5; padding:15px 5px;">Quick Learner with Strong Adaptability</li>
+                <li class="substep" style="color:rgb(247, 243, 243); text-align:center; margin-left:50px; line-height:2.5; padding:15px 5px;">Customization & Flexibility</li>
+                <li class="substep" style="color:rgb(247, 243, 243); text-align:center; margin-left:50px; line-height:2.5; padding:15px 5px;">Automation and Design Studies</li> 
+            </ul> -->
+            
+<!-- 
+            <div class="notes">
+                ___Before we wrap up, I'd like to briefly explain how my experience and skills could help your team achieve its goals<br>
+                ___I’ve spent many years developing advanced CFD solvers for real-world applications that involve turbulence, heat transfer, and multiphysics<br>
+                ___I’m a good team player and have worked with people from different countries and departments. I always get things done by collaborating effectively.<br>
+                ___I learn fast and adapt easily—essential for high-pace works and cross-disciplinary projects."<br>
+                ___I have plenty of experience with both in-house and open-source software, so I can customize the simulation tools to perfectly fit your hardware and design needs<br>
+                ___I've also developed automated workflows for large-scale parametric studies and optimization—tools that can be directly used in youur daily worksflows.<br>
+            </div>
+        </div> -->
+
+        <div class="step slide left" style="margin-top: 100px; margin-left:0x;" data-rel-x="3000" data-rel-y="0" data-rotate-y="0" data-rotate="0" data-scale="1" data-transition-duration="1000">
+        
+            <h1 style="text-align: center; margin-top:350px;  margin-left:-250px">
+                Q & A
+            </h1>
+            <div class="notes">
+                ___This concludes my presentation. I'm happy to move on to the rest of the interview
+            </div>
+        </div>
+
+    <!-- End of the body -->
+    </div>
+      
+    <!--
+    Add navigation-ui controls: back, forward and a select list.
+    Add a progress indicator bar (current step / all steps)
+    Add the help popup plugin
+    -->
+    <div id="impress-toolbar"></div>
+    <div class="impress-progressbar"><div></div></div>
+    <div class="impress-progress"></div>
+    <div id="impress-help"></div>
+
+    <script type="text/javascript" src="./extras/highlight/highlight.pack.js"></script>
+    <script type="text/javascript" src="./extras/mermaid/mermaid.min.js"></script>
+    <script type="text/javascript" src="./extras/markdown/markdown.js"></script>
+    <script type="text/javascript" src="./extras/mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script>
+        if ("ontouchstart" in document.documentElement) {
+            document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";}
+    </script>
+    <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ['\\(','\\)'] ] },
+                TeX: {
+                    Macros: {
+                        energy: "e",
+                        eqby: ["\\stackrel{#1}{=}",1], }
+                     }      });
+    </script>
+    <script type="text/javascript"
+            src="./extras/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+    <script src="./js/impress.js"></script>
+
+    <script>impress().init()</script>
+
+</body>
+</html>
